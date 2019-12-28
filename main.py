@@ -4,7 +4,7 @@ import timeit
 
 #What is good code?
 #1. Readable
-#2. Scalable
+#2. Scalable - Speed & Memory
 
 #Linear Time
 #Example 
@@ -67,5 +67,24 @@ def example_3(input):
 #______Rules_____
 #1. Worst Case
 #2. Remove Constants - Slope doesn't matter. Just the type of relation 
-#3. Different terms for inputs - O(n) vs O(n+m), nested loops are O(n*m) <-- Quadratic Time
+#3. Different terms for inputs - O(n) vs O(n+m), nested loops are O(n*m*...*count of nested loops) <-- Quadratic Time
 #4. Drop Non Dominants
+
+#_______________________________________________
+
+# Excercise 1: reverse a string
+def reverse(myStr):
+  result = " "
+  myStr = split(myStr)
+  reverse_string = []
+  str_length = len(myStr)
+  for i in range(str_length-1, -1, -1):
+    reverse_string.append(myStr[i])
+    
+  result = "".join(reverse_string)
+  return result
+
+def split(word):
+  return [char for char in word]
+
+print(reverse("hello"))
