@@ -146,14 +146,39 @@ import timeit
  
 #Excercise 1: Given an array, return first recurring chracter
 
-#You can brute force with a for loop and list
+#You can brute force with nested for loops O(a*b)
 
-def brute_force_recur(array):
+#Or use temp values (comes to my mind first) only works if repeating numbers are consecutive
+def temp_value_recur(array):
   temp_num = None
   for i in range(0, len(array)):
     if array[i] == temp_num:
       return(array[i])
     temp_num = array[i]
   return("none")
-print(brute_force_recur([1,2,3,4,5,6,7,8]))
+print(temp_value_recur([1,2,3,4,5,6,7,8]))
 
+#Or use hash tables
+def dict_recur(array):
+  recur_dict = {}
+
+  for i in array:
+    if i in recur_dict:
+      return i
+    else:
+      recur_dict[i] = array[i]
+  return None
+print(dict_recur([1,2,2,3]))
+
+# The two above only work when in a certain order, you need clarification about what they want returned (first that appears vs first that repeats)
+
+#Hash tables pros and cons:
+#+Fast lookups (good collision resolution needed)
+#+Fast inserts
+#+flexible keys
+#-unordered
+#slow key iteration
+
+
+#_______________________________________________
+#Linked 
